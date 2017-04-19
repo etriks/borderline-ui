@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------------------- */
 /* global borderline */
 
-import React, { Component, PropTypes as T } from 'react';
+import React, { Component } from 'react';
+import { default as T } from 'prop-types';
 import BorderlineScene from '../BorderlineScene';
 
 // Container delcaration

@@ -7,8 +7,8 @@ import storylineEpics from './epics';
 
 class StorylineExtension {
 
-    identity() {
-        return '0000-00-003';
+    __identity__() {
+        return 'storyline';
     }
 
     invocation() {

@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import { Children, Component, PropTypes as T } from 'react';
+import { Children, Component } from 'react';
+import { default as T } from 'prop-types';
 
 export default class Authenticated extends Component {
 

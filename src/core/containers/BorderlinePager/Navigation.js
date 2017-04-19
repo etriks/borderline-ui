@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------------------- */
 /* global borderline */
 
-import React, { Component, PropTypes as T } from 'react';
+import React, { Component } from 'react';
+import { default as T } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import pageActions from './flux/actions';

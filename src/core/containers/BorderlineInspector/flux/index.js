@@ -8,7 +8,7 @@ import inspectorEpics from './epics';
 
 class InspectorExtension {
 
-    identity() {
+    __identity__() {
         return 'inspector';
     }
 

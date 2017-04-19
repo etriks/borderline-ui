@@ -7,7 +7,7 @@ import pageReducers from './reducers';
 
 class PageExtension {
 
-    identity() {
+    __identity__() {
         return 'page';
     }
 

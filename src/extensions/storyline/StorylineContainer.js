@@ -5,15 +5,20 @@
 /* global borderline:true */
 
 import React, { Component } from 'react';
+import StorylineNavigation from './components/StorylineNavigation';
+import StorylineContent from './components/StorylineContent';
 
-import containerStyles from './styles/Container.css';
+// import containerStyles from './styles/Container.css';
 
 class StorylineContainer extends Component {
 
     render() {
-        let TextEditor = borderline.components.textEditor;
+        const Wrapper = borderline.components.wrapper;
         return (
-            <TextEditor value='var jean = 1337 || "debugger";' language='javascript' className={containerStyles.box} />
+            <Wrapper relative>
+                <StorylineContent/>
+                <StorylineNavigation/>
+            </Wrapper>
         );
     }
 }

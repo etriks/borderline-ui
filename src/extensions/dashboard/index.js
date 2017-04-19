@@ -8,8 +8,8 @@ import dashboardEpics from './epics';
 
 class DashboardExtension {
 
-    identity() {
-        return '0000-00-001';
+    __identity__() {
+        return 'dashboard';
     }
 
     invocation() {
