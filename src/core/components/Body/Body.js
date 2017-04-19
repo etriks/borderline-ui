@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import { Component, Children, PropTypes as T } from 'react';
+import { Component, Children } from 'react';
+import { default as T } from 'prop-types';
 import bodyStyles from './styles/Body.css';
 
 export default class Body extends Component {

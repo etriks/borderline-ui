@@ -34,7 +34,7 @@ const BatchingStrategy = {
             try {
                 ReactDOM.render(<Stale />, staleContainer);
                 if (process.env.NODE_ENV === 'development')
-                    console.error('An error occured while rendering an extension:\n', e); // eslint-disable-line no-console
+                    console.error('An error occured while rendering the extension:\n', e); // eslint-disable-line no-console
             } finally {
                 isHandlingError = false;
             }

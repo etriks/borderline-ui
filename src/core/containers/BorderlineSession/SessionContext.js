@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------------------- */
 /* global borderline */
 
-import { Component, Children, PropTypes as T } from 'react';
+import { Component, Children } from 'react';
+import { default as T } from 'prop-types';
 
 // Container delcaration
 @borderline.stateAware('SessionContext')

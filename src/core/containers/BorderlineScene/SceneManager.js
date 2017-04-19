@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import { Component, Children, PropTypes as T } from 'react';
+import { Component, Children } from 'react';
+import { default as T } from 'prop-types';
 import { BehaviorSubject } from 'rxjs';
 import { combineEpics } from 'redux-observable';
 import storeManager from '../../utilities/StoreManager';
@@ -44,13 +45,13 @@ export default class SceneManager extends Component {
     bootstrap() {
 
         this.instance = new this.props.seed();
-        if (!this.instance.__proto__.identity) {
+        if (!this.instance.__proto__.__identity__) {
             if (!this.model || this.model === '') {
                 console.error('Extention cannot be identified'); // eslint-disable-line no-console
                 return false;
             }
         } else
-            this.model = this.instance.identity();
+            this.model = this.instance.__identity__();
         if (!this.instance.__proto__.invocation) {
             console.error(`Extention ${this.model} cannot be invoked`); // eslint-disable-line no-console
             return false;

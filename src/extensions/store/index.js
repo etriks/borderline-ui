@@ -7,8 +7,8 @@ import storeEpics from './epics';
 
 class StoreExtension {
 
-    identity() {
-        return '0000-00-002';
+    __identity__() {
+        return 'store';
     }
 
     invocation() {

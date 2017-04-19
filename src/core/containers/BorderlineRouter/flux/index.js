@@ -7,7 +7,7 @@ import routerReducers from './reducers';
 
 class RouterExtension {
 
-    identity() {
+    __identity__() {
         return 'router';
     }
 

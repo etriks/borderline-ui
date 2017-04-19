@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------------------- */
 /* global borderline */
 
-import React, { Component, Children, PropTypes as T } from 'react';
+import React, { Component, Children } from 'react';
+import { default as T } from 'prop-types';
 import SessionContext from './SessionContext';
 import Authenticated from './Authenticated';
 import NotAuthenticated from './NotAuthenticated';

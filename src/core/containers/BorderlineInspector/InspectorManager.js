@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import React, { Component, Children, PropTypes as T } from 'react';
+import React, { Component, Children } from 'react';
+import { default as T } from 'prop-types';
 import InspectorContext from './InspectorContext';
 import ExtensionsInjector from './ExtensionsInjector';
 import BorderlineScene from '../BorderlineScene';

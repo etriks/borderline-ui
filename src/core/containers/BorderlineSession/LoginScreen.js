@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------------------- */
 /* global borderline */
 
-import React, { Component, PropTypes as T } from 'react';
+import React, { Component } from 'react';
+import { default as T } from 'prop-types';
 import LoaderBar from '../../components/LoadBar';
 import sessionActions from './flux/actions';
 import loginStyles from './styles/Login.css';

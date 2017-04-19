@@ -8,7 +8,7 @@ import sessionEpics from './epics';
 
 export default class SessionExtension {
 
-    identity() {
+    __identity__() {
         return 'session';
     }
 

@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import React, { Component, PropTypes as T } from 'react';
+import React, { Component } from 'react';
+import { default as T } from 'prop-types';
 import DOMPurify from 'dompurify';
 
 export default class SVG extends Component {
