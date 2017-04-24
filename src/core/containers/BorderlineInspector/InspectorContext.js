@@ -8,7 +8,7 @@ import React, { Component, Children } from 'react';
 import { default as T } from 'prop-types';
 
 // Container delcaration
-@borderline.stateAware('InspectorContext')
+@borderline.stateAware()
 export default class InspectorContext extends Component {
 
     // Custom name for container

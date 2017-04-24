@@ -13,7 +13,7 @@ import BorderlineScene from '../BorderlineScene';
 import contentBoxStyles from './styles/Content.css';
 
 // Container delcaration
-@borderline.stateAware('Content')
+@borderline.stateAware()
 export default class Content extends Component {
 
     // Custom name for container
