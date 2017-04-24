@@ -8,7 +8,7 @@ import { Component, Children } from 'react';
 import { default as T } from 'prop-types';
 
 // Container delcaration
-@borderline.stateAware('SessionContext')
+@borderline.stateAware()
 export default class SessionContext extends Component {
 
     // Custom name for container

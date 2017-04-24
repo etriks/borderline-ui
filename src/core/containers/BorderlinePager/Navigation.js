@@ -16,7 +16,7 @@ import menuTitleIcon from './images/menuTitleIcon.svg';
 import menuIcon from './images/menuIcon.svg';
 
 // Container delcaration
-@borderline.stateAware('Navigation')
+@borderline.stateAware()
 export default class Navigation extends Component {
 
     // Custom name for container
