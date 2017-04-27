@@ -12,7 +12,7 @@ class StorylineContent extends Component {
         const Wrapper = borderline.components.wrapper;
         return (
             <Wrapper absolute>
-                <span>Content</span>
+                <span></span>
             </Wrapper>
         );
     }

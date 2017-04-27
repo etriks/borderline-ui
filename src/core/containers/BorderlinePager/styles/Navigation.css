@@ -40,9 +40,9 @@
 
         & .icon {
             display: inline-block;
-            width: calc(var(--sidebar-width) - 5px);
+            width: calc(var(--sidebar-width) - 6px);
             height: var(--sidebar-width);
-            padding: calc(var(--sidebar-width) / 3.2) 0px;
+            padding: calc(var(--sidebar-width) / 3.5) 0px;
             overflow: hidden;
 
             & svg {
@@ -71,7 +71,7 @@
     }
 
     & .link {
-        border-left: solid 4px var(--accent-color);
+        border-left: solid 3px var(--accent-color);
         padding-left: 0px;
 
         & .icon * {

@@ -5,27 +5,28 @@
 /* global borderline:true */
 
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 import navigationStyles from './styles/Navigation.css';
 
 class StorylineNavigation extends Component {
 
     render() {
-        const { pathname = '' } = this.props;
         const Wrapper = borderline.components.wrapper;
         return (
-            <Wrapper absolute>
-                <NavLink to={`${pathname}/new`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
-                    New +
-                </NavLink>
-                <NavLink to={`${pathname}/results`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
-                    Results
-                </NavLink>
-                <NavLink to={`${pathname}/results`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
-                    Bookmarks
-                </NavLink>
-            </Wrapper>
+            <Route render={({match}) =>
+                <Wrapper absolute className={navigationStyles.navbar}>
+                    <NavLink to={`${match.path}/new`} activeClassName={navigationStyles.active} className={`${navigationStyles.button} ${navigationStyles.highlight}`}>
+                        New +
+                    </NavLink>
+                    <NavLink to={`${match.path}/results`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
+                        Results
+                    </NavLink>
+                    <NavLink to={`${match.path}/bookmarks`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
+                        Bookmarks
+                    </NavLink>
+                </Wrapper>
+            }/>
         );
     }
 }

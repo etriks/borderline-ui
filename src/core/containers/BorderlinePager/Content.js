@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import { default as T } from 'prop-types';
-import ReactDOM from 'react-dom';
 import { Route } from 'react-router-dom';
 
 import BorderlineScene from '../BorderlineScene';
@@ -36,46 +35,17 @@ export default class Content extends Component {
     }
 
     render() {
-        const { pathname = '' } = this.props;
         const Wrapper = borderline.components.wrapper;
         return (
             <Wrapper relative className={`${contentBoxStyles.stage} ${this.contracted ? contentBoxStyles.contract : ''}`}>
                 {this.pages.map((component) => (
-                    <Route path={`${pathname}/${component.particule}`} exact={true} component={() => (
-                        <ContentBoxMountingContainer component={component} />
+                    <Route path={`/${component.particule}`} exact={false} component={() => (
+                        <BorderlineScene model={component.origin} position={'pager'}>
+                            <component.view />
+                        </BorderlineScene>
                     )} key={`${component.particule}_${(Math.random() * 1e32).toString(36)}}`} />
                 ))}
             </Wrapper>
-        );
-    }
-}
-
-class ContentBoxMountingContainer extends Component {
-
-    componentDidMount() {
-        this.renderView();
-    }
-
-    componentDidUpdate() {
-        this.renderView();
-    }
-
-    componentWillUnmount() {
-        ReactDOM.unmountComponentAtNode(this.slot);
-    }
-
-    renderView() {
-        const { component } = this.props;
-        this.view = ReactDOM.render(
-            <BorderlineScene model={component.origin} position={'pager'}>
-                <component.view />
-            </BorderlineScene>, this.slot
-        );
-    }
-
-    render() {
-        return (
-            <div className={contentBoxStyles.box} ref={(slot) => { this.slot = slot; }} />
         );
     }
 }
