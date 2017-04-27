@@ -65,13 +65,12 @@
     "webpack-hot-middleware": "2.18.0"
   },
   "dependencies": {
-    "dompurify": "0.8.6",
+    "dompurify": "0.8.7",
     "immutable": "3.8.1",
     "monaco-editor": "0.8.3",
     "prop-types": "^15.5.8",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-jsonschema-form": "^0.46.0",
     "react-redux": "5.0.4",
     "react-router": "4.1.1",
     "react-router-dom": "4.1.1",

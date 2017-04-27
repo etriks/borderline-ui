@@ -2,3 +2,36 @@
  *  Copyright (c) Florian Guitton. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
+
+@import '../../../../../core/styles/Theme.css';
+
+.navbar {
+    height: var(--sidebar-width);
+    background-color: var(--background-color-005);
+}
+
+.button {
+
+    height: var(--sidebar-width);
+    width: calc(2 * var(--sidebar-width));
+    line-height: var(--sidebar-width);
+    text-align: center;
+    display: inline-block;
+
+    &:hover {
+        background-color: var(--background-color-010);
+    }
+
+    &.active {
+        background-color: var(--background-color-015);
+    }
+
+    &.highlight {
+
+        background-color: var(--accent-color);
+
+        &:hover {
+            background-color: color(var(--accent-color) whiteness(30%));
+        }
+    }
+}
