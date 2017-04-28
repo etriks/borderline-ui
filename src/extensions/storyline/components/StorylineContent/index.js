@@ -5,14 +5,6 @@ import FormExtension from '../StorylineForm/index.js';
 import * as form_t from '../StorylineForm/FormTypes.js';
 
 class StorylineContent extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-
-    componentDidMount() {
-        this.props.dispatch({ type : form_t.FORM_ACTION_LOAD });
-    }
 
     render() {
         const Wrapper = borderline.components.wrapper;

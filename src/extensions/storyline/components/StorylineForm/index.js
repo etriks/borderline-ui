@@ -14,6 +14,10 @@ class FormComponent extends Component {
         this.state = form_t.default_schema;
     }
 
+    componentDidMount() {
+        this.props.dispatch({ type : form_t.FORM_ACTION_LOAD });
+    }
+
     render() {
         const Wrapper = borderline.components.wrapper;
         return (
