@@ -38,7 +38,7 @@
         "react/jsx-uses-vars": 2,
         "react/react-in-jsx-scope": 2,
         "no-alert": 2,
-        "no-console": 1,
+        "no-console": 0,
         "quotes": [
             2,
             "single"
