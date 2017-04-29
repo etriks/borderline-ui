@@ -77,7 +77,7 @@ class ExpandMenuButtonContainer extends Component {
         const { expanded } = this.props;
         const Icon = borderline.components.svg;
         return (
-            <div className={navigationStyles.button} onClick={this.expand.bind(this)}>
+            <div className={navigationStyles.button} onClick={::this.expand}>
                 <div className={navigationStyles.link}>
                     <div className={navigationStyles.icon}>
                         {expanded ? <Icon src={menuIcon} /> : <Icon src={menuTitleIcon} />}
@@ -120,7 +120,7 @@ class LogoutButtonContainer extends Component {
     render() {
         const Icon = borderline.components.svg;
         return (
-            <div className={`${navigationStyles.button} ${navigationStyles.logout}`} onClick={this.logout.bind(this)}>
+            <div className={`${navigationStyles.button} ${navigationStyles.logout}`} onClick={::this.logout}>
                 <div className={navigationStyles.link}>
                     <div className={navigationStyles.icon}>
                         <Icon src={logoutIcon} />

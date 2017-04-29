@@ -18,6 +18,7 @@ class TextEditor extends Component {
 
     componentDidMount() {
         this.disposed = false;
+        this.options = this.props.options;
         this.setState({
             value: this.props.value || ''
         });
@@ -41,19 +42,29 @@ class TextEditor extends Component {
     }
 
     componentWillUnmount() {
+        console.log('TextEditor >', 'componentWillUnmount', this.disposed); // eslint-disable-line no-console
         if (this.editor)
             this.editor.dispose();
         this.disposed = true;
     }
 
+    shouldComponentUpdate() {
+        console.log('TextEditor >', 'shouldComponentUpdate'); // eslint-disable-line no-console
+        return false;
+    }
+
     init() {
         this.editor = window.monaco.editor.create(this.slot, {
             value: this.state.value,
-            language: this.props.language,
+            language: this.options.language,
             theme: 'vs-dark',
             contextmenu: false,
             quickSuggestions: false,
-            automaticLayout: true
+            automaticLayout: true,
+            fontSize: 12
+        });
+        this.editor.onDidChangeModelContent(() => {
+            (this.options.onDidChangeModelContent || (() => {}))(this.editor);
         });
     }
 

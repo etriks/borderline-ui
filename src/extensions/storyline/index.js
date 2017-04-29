@@ -3,7 +3,8 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
 
-import storylineEpics from './epics';
+import storylineEpics from './flux/epics';
+import storylineReducers from './flux/reducers';
 
 class StorylineExtension {
 
@@ -13,6 +14,7 @@ class StorylineExtension {
 
     invocation() {
         this.declareEpics(storylineEpics);
+        this.declareReducers(storylineReducers);
     }
 }
 

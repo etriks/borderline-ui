@@ -29,6 +29,7 @@
         vertical-align: top;
         text-decoration: none;
         color: color(var(--background-color-000) contrast(100%));
+        font-size: 11px;
     }
 
     & body, & body > div {
@@ -36,7 +37,7 @@
         height: 100%;
     }
 
-    & input {
+    & input, & textarea {
 
         display: inline-block;
         background-color: var(--background-color-015);

@@ -25,6 +25,9 @@ class StorylineNavigation extends Component {
                     <NavLink to={`${match.path}/bookmarks`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
                         Bookmarks
                     </NavLink>
+                    <NavLink to={`${match.path}/form`} activeClassName={navigationStyles.active} className={navigationStyles.button}>
+                        Form Test
+                    </NavLink>
                 </Wrapper>
             }/>
         );

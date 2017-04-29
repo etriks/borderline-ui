@@ -12,6 +12,15 @@ import StorylineContent from './components/StorylineContent';
 
 class StorylineContainer extends Component {
 
+    componentWillUnmount() {
+        console.log('StorylineContainer >', 'componentWillUnmount'); // eslint-disable-line no-console
+    }
+
+    shouldComponentUpdate() {
+        console.log('StorylineContainer >', 'shouldComponentUpdate'); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
         const Wrapper = borderline.components.wrapper;
         return (

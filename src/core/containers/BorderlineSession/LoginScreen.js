@@ -42,7 +42,7 @@ export default class LoginScreen extends Component {
                     <div className={loginStyles.title}>
                         <span>borderline<strong>:</strong></span>
                     </div>
-                    <form className={loginStyles.form} onSubmit={this.sumbit.bind(this)}>
+                    <form className={loginStyles.form} onSubmit={::this.sumbit}>
                         <input type="text" placeholder="Username" ref="username" /><br />
                         <input type="password" placeholder="Password" ref="password" /><br />
                         {isProcessing ? (<LoaderBar />) : (<button type="submit">Login</button>)}<br />
