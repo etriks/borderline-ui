@@ -98,10 +98,16 @@ class StoreManager {
 }
 
 export default new StoreManager();
-export const stateAware = () => {
+export const stateAware = (...stores) => {
     return (target) => {
         return connect(state => {
-            return { state: state };
+            console.log('%% StoreManager >', 'stateAware', stores); // eslint-disable-line no-console
+            if (stores.length == 0)
+                stores = Object.keys(state);
+            let obj = {};
+            for (var i = 0; i < stores.length; i++)
+                obj[stores[i]] = state[stores[i]].toJS();
+            return obj;
         }, () => ({}))(target);
     };
 };

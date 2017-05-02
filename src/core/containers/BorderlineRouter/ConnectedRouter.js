@@ -19,7 +19,13 @@ export default class ConnectedRouter extends Component {
         children: T.element
     };
 
+    shouldComponentUpdate() {
+        console.debug(`@--># ${this.constructor.name} > shouldComponentUpdate`); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         const { children } = this.props;
         return (
             <Router>

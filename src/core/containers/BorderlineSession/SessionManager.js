@@ -6,7 +6,6 @@
 
 import React, { Component, Children } from 'react';
 import { default as T } from 'prop-types';
-import SessionContext from './SessionContext';
 import Authenticated from './Authenticated';
 import NotAuthenticated from './NotAuthenticated';
 import LoginScreen from './LoginScreen';
@@ -24,21 +23,25 @@ export default class SessionManager extends Component {
         children: T.element
     };
 
+    shouldComponentUpdate() {
+        console.debug(`@--># ${this.constructor.name} > shouldComponentUpdate`); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         const { children } = this.props;
         const Wrapper = borderline.components.wrapper;
         return (
             <BorderlineScene scene={'core'} seed={sessionFlux}>
-                <SessionContext>
-                    <Wrapper absolute>
-                        <Authenticated>
-                            {children ? Children.only(children) : null}
-                        </Authenticated>
-                        <NotAuthenticated>
-                            <LoginScreen />
-                        </NotAuthenticated>
-                    </Wrapper>
-                </SessionContext>
+                <Wrapper absolute>
+                    <Authenticated>
+                        {children ? Children.only(children) : null}
+                    </Authenticated>
+                    <NotAuthenticated>
+                        <LoginScreen />
+                    </NotAuthenticated>
+                </Wrapper>
             </BorderlineScene>
         );
     }

@@ -10,7 +10,7 @@ import Form from 'react-jsonschema-form';
 
 import stepStyles from './styles/Renderer.css';
 
-@borderline.stateAware()
+@borderline.stateAware('storyline')
 class StepFormRenderer extends Component {
 
     // Custom name for container
@@ -26,7 +26,6 @@ class StepFormRenderer extends Component {
 
     // Types for available context
     static contextTypes = {
-        model: T.string,
         dispatch: T.func
     };
 
@@ -55,10 +54,14 @@ class StepFormRenderer extends Component {
         this.context.dispatch({ type: 'FORM_ACTION_SAVE', schema: submitSchema });
     }
 
-    onError(data) {
+    onError() {
         console.log('Error'); // eslint-disable-line no-console
-        console.log(data); // eslint-disable-line no-console
+        // console.log(data); // eslint-disable-line no-console
     }
+
+    // shouldComponentUpdate() {
+    //     return false;
+    // }
 
     render() {
         const Wrapper = borderline.components.wrapper;
@@ -67,8 +70,8 @@ class StepFormRenderer extends Component {
         let fData = {};
         try {
             // fSchema = JSON.parse(this.props.state[this.context.model].toJS().stepFormSchema);
-            if (this.props.state && this.props.state[this.context.model] && this.props.state[this.context.model].toJS().stepFormSchema)
-                fSchema = this.props.state[this.context.model].toJS().stepFormSchema;
+            if (this.props.storyline && this.props.storyline.stepFormSchema)
+                fSchema = this.props.storyline.stepFormSchema;
             // fUi = JSON.parse(this.props.formUi);
             // fData = JSON.parse(this.props.formData);
         }
@@ -81,10 +84,8 @@ class StepFormRenderer extends Component {
                     uiSchema={fUi}
                     formData={fData}
                     onChange={this.onChange}
-                    onSubmit={this.onSubmit}
                     onError={this.onError}
                     showErrorList={true}>
-                    {/* <button type='submit'>Trigger save event</button> */}
                 </Form>
                 <div id='formViewError'>
                     <span>{this.props.formSchemaError} </span>

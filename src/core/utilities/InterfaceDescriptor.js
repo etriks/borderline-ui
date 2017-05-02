@@ -18,6 +18,9 @@ export const api = serverCommunication;
 // Decorator for connecting external components to the store
 export { stateAware } from './StoreManager';
 
+// Decorator for helping with location-aware component
+export { locationAware } from './LocationHelper';
+
 // We export resuable components
 export const components = {
     textEditor: TextEditor,

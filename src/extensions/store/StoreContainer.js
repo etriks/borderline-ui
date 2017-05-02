@@ -10,6 +10,11 @@ class StoreContainer extends Component {
     componentWillMount() {
         throw 'Extension manager is not implemented in componentWillMount';
     }
+
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
         throw 'Extension manager is not implemented in render';
     }

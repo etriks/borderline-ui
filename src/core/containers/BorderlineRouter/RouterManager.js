@@ -20,6 +20,11 @@ export default class RouterManager extends Component {
         children: T.element
     };
 
+    shouldComponentUpdate() {
+        console.debug(`@--># ${this.constructor.name} > shouldComponentUpdate`); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
         const { children } = this.props;
         return (

@@ -154,12 +154,13 @@ export default class SceneManager extends Component {
         this.scene = this.props.scene;
         if (this.props.seed !== null)
             this.bootstrap();
+        else
+            this.setState({
+                valid: true
+            });
     }
 
     componentDidMount() {
-        this.setState({
-            valid: true
-        });
         if (this.props.seed !== null)
             storeManager.dispatch(this.actionTagger({ type: 'START' }, this.scene, this.model));
     }
@@ -169,8 +170,16 @@ export default class SceneManager extends Component {
             storeManager.dispatch(this.actionTagger({ type: 'STOP' }, this.scene, this.model));
     }
 
+    shouldComponentUpdate() {
+        console.debug(`@--># ${this.constructor.name}(${this.scene}/${this.model}) > shouldComponentUpdate`); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
+        if (!this.state.valid)
+            return null;
         const { children } = this.props;
+        console.debug(`@--># ${this.constructor.name}(${this.scene}/${this.model}) > render`, this.state.valid); // eslint-disable-line no-console
         return children && this.state.valid ? Children.only(children) : null;
     }
 }

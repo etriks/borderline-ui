@@ -11,6 +11,10 @@ import navigationStyles from './styles/Navigation.css';
 
 class StorylineNavigation extends Component {
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
         const Wrapper = borderline.components.wrapper;
         return (

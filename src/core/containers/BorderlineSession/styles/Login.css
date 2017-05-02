@@ -9,9 +9,6 @@
 
     background-color: var(--background-color-000);
 
-    &.hide {
-        visibility: hidden;
-    }
 }
 
 .box {

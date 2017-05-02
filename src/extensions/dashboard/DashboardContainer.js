@@ -17,7 +17,12 @@ class DashboardContainer extends Component {
         this.context.dispatch({type: 'DASHBOARD_DID_MOUNT'});
     }
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         return (
             <div>Welcome to borderline</div>
         );

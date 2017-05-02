@@ -2,25 +2,32 @@
  *  Copyright (c) Florian Guitton. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
+/* global borderline */
 
 import { Children, Component } from 'react';
-import { default as T } from 'prop-types';
 
+// Container delcaration
+@borderline.stateAware('session')
 export default class Authenticated extends Component {
 
     // Custom name for container
     static displayName = 'Authenticated'
 
-    // Types for available context
-    static contextTypes = {
-        session: T.object
-    };
+    componentWillUpdate(next) {
+        let {session} = next;
+        this.sessionOK = session && session.ok != undefined ? session.ok : false;
+    }
+
+    shouldComponentUpdate(next) {
+        let {session} = next;
+        return !!(session && session.ok != undefined && this.sessionOK != session.ok);
+    }
 
     render() {
-        let {session} = this.context;
         let {children} = this.props;
-        if (!session || !session.ok)
+        if (!this.sessionOK)
             return null;
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         return children ? Children.only(children) : null;
     }
 }

@@ -17,6 +17,10 @@ export default class BorderlineApplication extends Component {
     // Custom name for container
     static displayName = 'BorderlineApplication';
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     // Here we do the top level rendering of our application
     render() {
         return (

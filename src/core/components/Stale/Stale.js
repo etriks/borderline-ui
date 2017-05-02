@@ -14,6 +14,10 @@ export default class Stale extends Component {
     // Custom name for container
     static displayName = 'Stale';
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
         const Icon = borderline.components.svg;
         const Wrapper = borderline.components.wrapper;

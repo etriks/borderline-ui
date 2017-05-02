@@ -2,10 +2,10 @@
  *  Copyright (c) Florian Guitton. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  * ---------------------------------------------------------------------------------------- */
+/* global borderline */
 
 import React, { Component, Children } from 'react';
 import { default as T } from 'prop-types';
-import InspectorContext from './InspectorContext';
 import ExtensionsInjector from './ExtensionsInjector';
 import BorderlineScene from '../BorderlineScene';
 import inspectorFlux from './flux';
@@ -21,14 +21,20 @@ export default class InspectorManager extends Component {
         children: T.element
     };
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         const { children } = this.props;
+        const Wrapper = borderline.components.wrapper;
         return (
             <BorderlineScene scene={'core'} seed={inspectorFlux}>
-                <InspectorContext>
+                <Wrapper absolute>
                     <ExtensionsInjector />
                     {children ? Children.only(children) : null}
-                </InspectorContext>
+                </Wrapper>
             </BorderlineScene>
         );
     }

@@ -17,10 +17,6 @@ export default class Wrapper extends Component {
         children: T.oneOfType([T.array, T.element])
     };
 
-    shouldComponentUpdate() {
-        return true;
-    }
-
     render() {
         const { children } = this.props;
         if (children === undefined || children === null)

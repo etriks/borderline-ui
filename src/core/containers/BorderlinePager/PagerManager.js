@@ -16,7 +16,12 @@ export default class PagerManager extends Component {
     // Custom name for container
     static displayName = 'PagerManager';
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         const Wrapper = borderline.components.wrapper;
         return (
             <BorderlineScene scene={'core'} seed={pageFlux}>

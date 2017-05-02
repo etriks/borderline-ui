@@ -21,7 +21,12 @@ class StepFormEditor extends Component {
     };
 
     onDidChangeModelContent(editor) {
-        this.context.dispatch({type: storyTypes.STEP_FORM_SCHEMA_UPDATE, text: JSON.parse(editor.getValue())});
+        try {
+            let form = JSON.parse(editor.getValue());
+            this.context.dispatch({type: storyTypes.STEP_FORM_SCHEMA_UPDATE, text: form});
+        } catch (e) {
+            console.error('StepFormEditor >', 'onDidChangeModelContent'); // eslint-disable-line no-console
+        }
     }
 
     shouldComponentUpdate() {

@@ -20,8 +20,31 @@ export default class MountedRoute extends Component {
 
     // Types for available context
     static contextTypes = {
-        dispatch: T.func
+        dispatch: T.func,
+        router: T.object
     };
+
+    // Typechecking for children's context
+    static childContextTypes = {
+        location: T.object
+    };
+
+    getChildContext() {
+        return {
+            location: {
+                subscribe: (id, func) => {
+                    this.listeners[id] = func;
+                },
+                unsubscribe: (id) => {
+                    delete this.listeners[id];
+                }
+            },
+        };
+    }
+
+    componentWillMount() {
+        this.listeners = [];
+    }
 
     componentDidMount() {
         this.advertise();
@@ -36,9 +59,13 @@ export default class MountedRoute extends Component {
             this.location = this.props.destination.pathname;
             this.context.dispatch(routerActions.routerLocationChange(this.location));
         }
+        let keys = Object.keys(this.listeners);
+        for (var i = 0; i < keys.length; i++)
+            this.listeners[keys[i]](this.context.router);
     }
 
     render() {
+        console.debug(`@--># ${this.constructor.name} > render`); // eslint-disable-line no-console
         const { children } = this.props;
         return children ? Children.only(children) : null;
     }

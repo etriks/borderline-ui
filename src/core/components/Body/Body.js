@@ -21,6 +21,11 @@ export default class Body extends Component {
         document.documentElement.classList.add(bodyStyles.general);
     }
 
+    shouldComponentUpdate() {
+        console.debug(`@--># ${this.constructor.name} > shouldComponentUpdate`); // eslint-disable-line no-console
+        return false;
+    }
+
     render() {
         const { children } = this.props;
         return children ? Children.only(this.props.children) : null;

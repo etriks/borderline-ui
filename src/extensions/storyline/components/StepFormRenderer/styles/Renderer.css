@@ -8,4 +8,8 @@
 .renderer {
     width: calc(var(--sidebar-width) * 8);
     padding: calc(var(--sidebar-width) / 2);
+
+    & button {
+        visibility: hidden;
+    }
 }

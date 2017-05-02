@@ -12,6 +12,10 @@ export default class BorderlineStore extends Component {
     // Custom name for container
     static displayName = 'BorderlineStore';
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
         return (
             <Provider store={this.props.store}>
