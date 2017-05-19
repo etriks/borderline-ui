@@ -32,7 +32,7 @@ export default class LoginScreen extends Component {
 
     componentWillUpdate(next) {
         let {session} = next;
-        this.isProcessing = session && session.working ? session.working : true;
+        this.isProcessing = session && session.working != undefined ? session.working : true;
         this.hasAttempted = session && session.attempts ? session.attempts > 0 : false;
         this.error = session && session.error ? session.error : '';
     }

@@ -45,9 +45,7 @@ app.use(devMiddleware(compiler, {
 if (process.env.NODE_ENV !== 'production')
     app.use(hotMiddleware(compiler));
 
-app.use(borderlineServer({
-    mongoUrl: defines.mongoURL
-}));
+app.use(borderlineServer(defines));
 app.use('*', function (req, res, next) {
     var filename = path.join(compiler.outputPath, 'index.html');
     compiler.outputFileSystem.readFile(filename, function (err, result) {

@@ -20,7 +20,7 @@ export default {
         method: 'POST'
     }),
 
-    fetchExtensionsList: () => query('/plugin_store', {
+    fetchExtensionsList: () => query('/extension_store', {
         method: 'GET'
     }),
 

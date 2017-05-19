@@ -61,11 +61,23 @@ class TextEditor extends Component {
             contextmenu: false,
             quickSuggestions: false,
             automaticLayout: true,
-            fontSize: 12
+            fontSize: 12,
+            scrollbar: {
+                useShadows: false,
+                verticalHasArrows: true,
+                horizontalHasArrows: true,
+                vertical: 'visible',
+                horizontal: 'visible',
+                verticalScrollbarSize: 17,
+                horizontalScrollbarSize: 17,
+                arrowSize: 30
+            }
         });
-        this.editor.onDidChangeModelContent(() => {
-            (this.options.onDidChangeModelContent || (() => {}))(this.editor);
-        });
+        if (this.options.onLoad)
+            this.options.onLoad(this.editor);
+        // this.editor.onDidChangeModelContent(() => {
+        //     (this.options.onDidChangeModelContent || (() => {}))(this.editor);
+        // });
     }
 
     render() {

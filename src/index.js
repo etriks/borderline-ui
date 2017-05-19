@@ -24,7 +24,7 @@ let wait = Observable.interval(100)
             info: (...args) => window.c.info(...args),
             warn: (...args) => window.c.warn(...args),
             error: (...args) => window.c.error(...args),
-            debug: (...args) => (process.env.NODE_ENV !== 'production' ? window.c.debug(...args) : null)
+            debug: () => null
         };
         window.alert = () => null;
         window.prompt = () => null;

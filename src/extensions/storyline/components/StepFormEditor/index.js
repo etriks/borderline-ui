@@ -10,6 +10,7 @@ import storyTypes from '../../flux/types';
 
 import stepStyles from './styles/Editor.css';
 
+@borderline.stateAware('storyline')
 class StepFormEditor extends Component {
 
     // Custom name for container
@@ -29,9 +30,17 @@ class StepFormEditor extends Component {
         }
     }
 
-    shouldComponentUpdate() {
-        console.log('StepFormEditor >', 'shouldComponentUpdate'); // eslint-disable-line no-console
-        return false;
+    onLoad(editor) {
+        console.error('StepFormEditor >', 'onLoad', editor); // eslint-disable-line no-console
+        editor.onDidChangeModelContent(() => {
+            this.onDidChangeModelContent(editor);
+        });
+    }
+
+    shouldComponentUpdate(next) {
+        console.log('StepFormEditor >', 'shouldComponentUpdate', next); // eslint-disable-line no-console
+        let {storyline} = next;
+        return !!(storyline);
     }
 
     render() {
@@ -41,7 +50,7 @@ class StepFormEditor extends Component {
             <Wrapper absolute className={stepStyles.editor}>
                 <Editor options={{
                     language: 'json',
-                    onDidChangeModelContent: ::this.onDidChangeModelContent
+                    onLoad: ::this.onLoad
                 }} />
             </Wrapper>
         );

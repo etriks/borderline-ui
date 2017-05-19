@@ -85,7 +85,7 @@ class StepFormRenderer extends Component {
                     formData={fData}
                     onChange={this.onChange}
                     onError={this.onError}
-                    showErrorList={true}>
+                    showErrorList={false}>
                 </Form>
                 <div id='formViewError'>
                     <span>{this.props.formSchemaError} </span>

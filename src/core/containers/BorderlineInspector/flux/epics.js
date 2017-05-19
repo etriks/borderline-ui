@@ -19,7 +19,7 @@ export default {
     (action) => action.ofType(inspectorTypes.EXTENSIONS_LOAD)
         .mergeMap(() =>
             api.fetchExtensionsList()
-                .map(response => response.ok ? inspectorActions.extensionsSuccess(response.data.plugins) : inspectorActions.extensionsFailure())
+                .map(response => response.ok ? inspectorActions.extensionsSuccess(response.data.extensions) : inspectorActions.extensionsFailure())
         ),
 
     extensionDownloadFromLoad:

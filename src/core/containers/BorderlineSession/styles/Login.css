@@ -36,6 +36,7 @@
     & strong {
 
         color: var(--accent-color);
+        font-size: 40px;
     }
 }
 
