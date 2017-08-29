@@ -195,8 +195,7 @@ module.exports = function () {
                                 require('postcss-nested')(),
                                 require('postcss-cssnext')({
                                     browsers: 'last 2 versions'
-                                }),
-                                require('autoprefixer')()
+                                })
                             ]
                         }
                     }
